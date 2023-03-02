@@ -1,4 +1,6 @@
-from db.models import Product
+from pprint import pprint
 
-product = Product(title='Product 1', price=10)
-product.save()
+from db.models import *
+
+products = Products.objects.filter(publisher__title='Nintendo').values('title','price').all()
+pprint(products)
